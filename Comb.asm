@@ -73,21 +73,24 @@ recure: lw $a0, 4($sp)
 	lw $a1, 8($sp)
 	jal comb
 	#sw $v0, 12($sp)
-	#lw $a0, 4($sp)
+	lw $a0, 4($sp)
 	#move $s0, $v0
-	#addi $a0,$a0, -1
-	#lw $a1, 8($sp)
-	#addi $a1, $a1, -1
-	#jal comb 
-	#sw $s0, 16($sp)
-	lw $ra, 0($sp)
-	jr $ra 
+	addi $a0,$a0, -1
+	lw $a1, 8($sp)
+	addi $a1, $a1, -1
+	jal comb
+	move $s0, $v0 
+	sw $s0, 16($sp)
+	#lw $ra, 0($sp)
+	j return 
 return: 
+	addi $v0, $v0, 1
 	lw $ra, 0($sp)
 	lw $a0, 4($sp)
 	lw $a1, 8($sp)
-	lw $s0, 16($sp)
-	addi $sp, $sp, 16
+	lw $v0, 12($sp)
+	#lw $s0, 16($sp)
+	addi $sp, $sp, 2
 	addi $v0, $v0, 1
 	jr $ra
 	
