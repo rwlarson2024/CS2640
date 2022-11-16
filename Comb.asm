@@ -79,32 +79,20 @@ recure: lw $a0, 4($sp)
 	lw $a1, 8($sp)
 	addi $a1, $a1, -1
 	jal comb
-	move $s0, $v0 
+	#move $s0, $v0 
 	sw $s0, 16($sp)
 	#lw $ra, 0($sp)
-	j return 
+	j return
 return: 
-	addi $v0, $v0, 1
 	lw $ra, 0($sp)
 	lw $a0, 4($sp)
 	lw $a1, 8($sp)
-	lw $v0, 12($sp)
+	#lw $v0, 12($sp)
 	#lw $s0, 16($sp)
-	addi $sp, $sp, 2
+	addi $sp, $sp, 20
 	addi $v0, $v0, 1
+	#addi $v0, $v0, 1
 	jr $ra
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 combequal:
